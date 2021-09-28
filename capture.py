@@ -4,7 +4,7 @@ def capture():
     video = cv2.VideoCapture("E:/DataAugmentation/data/video/test.avi")
     idx = 0
     time = 0
-    freq = 15
+    freq = 1000
     if video.isOpened():
         rval, frame = video.read()
     else:
@@ -12,7 +12,7 @@ def capture():
     while rval:
         rval, frame = video.read()
         if(time % freq == 0):
-            cv2.imwrite("E:/DataAugmentation/data/raw/" + str(idx) + ".jpg", frame)
+            cv2.imwrite("E:/DataAugmentation/data/temp/capture_imgs/" + str(idx) + ".jpg", frame)
             idx += 1
         time += 1
         cv2.waitKey(1)
